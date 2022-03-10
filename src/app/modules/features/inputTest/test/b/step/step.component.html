@@ -1,0 +1,20 @@
+<div *ngIf="step.content as stepContent">
+  <ion-card
+    *ngFor="let pageElement of stepContent.pageElements"
+    [ngStyle]="{
+      'background-color': pageElement.backgroundColor
+    }"
+  >
+    <div style="height: 700px"></div>
+    <ng-container *ngFor="let element of pageElement.elements">
+      <inputTest-input
+        *ngIf="element.id === 'input'"
+        [element]="element"
+        [values]="step.value"
+        [answer]="step.answer"
+        (valueChange)="updateStepValue($event, element.answerId)"
+        (currentValue)="updateAge($event)"
+      ></inputTest-input>
+    </ng-container>
+  </ion-card>
+</div>

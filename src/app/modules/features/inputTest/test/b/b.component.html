@@ -1,0 +1,13 @@
+<swiper
+  [config]="slideOpts"
+  (slideChange)="handleSlideChange()"
+  (slideChangeTransitionEnd)="scrollToTop()"
+>
+  <ng-template swiperSlide *ngFor="let step of steps; let i = index"
+    ><step
+      [index]="i"
+      [step]="step"
+      (continueClick)="handleContinueClick()"
+    ></step
+  ></ng-template>
+</swiper>
